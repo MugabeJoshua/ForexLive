@@ -1,0 +1,12 @@
+{% if error %}
+<div class="p-5 text-sm text-amber-200">{{ error }}</div>
+{% elif data %}
+<div class="grid grid-cols-[1fr_1fr] border-b border-slate-700 bg-slate-900/60 px-5 py-4 text-xs font-semibold uppercase tracking-wider text-slate-400 sm:px-7"><span>Currency</span><span class="text-right">Rate in UGX</span></div>
+{% for item in data.rates %}
+<div class="rate-row grid grid-cols-[1fr_1fr] items-center gap-3 px-5 py-5 sm:px-7">
+  <div class="flex items-center gap-3"><span class="text-2xl">{{ item.flag }}</span><div><strong class="block text-sm sm:text-base">{{ item.code }}</strong><span class="text-xs text-slate-500">{{ item.name }}</span></div></div>
+  <div class="text-right"><strong class="block text-base sm:text-lg">{{ item.formatted }} <span class="text-xs font-medium text-sky-300">UGX</span></strong><span class="text-xs text-slate-500">1 {{ item.code }} = {{ item.formatted }} UGX</span></div>
+</div>
+{% endfor %}
+<div class="flex flex-wrap justify-between gap-2 border-t border-slate-800 px-5 py-4 text-xs text-slate-500 sm:px-7"><span>Provider update: {{ data.updated_at }}</span><span>Auto-refreshes every 5 minutes</span></div>
+{% else %}<div class="p-5 text-sm text-amber-200">Rates are unavailable. Refresh the page to try again.</div>{% endif %}

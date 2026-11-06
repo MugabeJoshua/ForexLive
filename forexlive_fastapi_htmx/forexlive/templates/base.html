@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Live reference exchange rates converted into Ugandan Shillings.">
+  <title>{% block title %}ForexLive — UGX Exchange Rates{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+  <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+</head>
+<body class="min-h-screen text-slate-100">
+  <div class="glow glow-one"></div><div class="glow glow-two"></div>
+  <div class="relative z-10 mx-auto max-w-6xl px-5">
+    <header class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800/90 py-5">
+      <a href="/" class="flex items-center gap-3 text-2xl font-extrabold tracking-tight"><span class="text-3xl text-sky-400">↗</span><span>Forex<span class="text-sky-400">Live</span></span></a>
+      <nav class="flex items-center gap-6 text-sm text-slate-300"><a class="hover:text-white" href="#rates">Forex Rates</a><a class="hover:text-white" href="#converter">Converter</a><a class="hover:text-white" href="#about">About</a></nav>
+      <div class="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-2 text-xs text-slate-300"><span class="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400"></span>Server rendered</div>
+    </header>
+    {% block content %}{% endblock %}
+    <footer class="mt-16 flex flex-wrap items-center justify-between gap-3 border-t border-slate-800 py-7 text-xs text-slate-500"><span class="font-bold text-slate-300">Forex<span class="text-sky-400">Live</span></span><span>Reference rates only · Not a trading platform</span></footer>
+  </div>
+</body>
+</html>

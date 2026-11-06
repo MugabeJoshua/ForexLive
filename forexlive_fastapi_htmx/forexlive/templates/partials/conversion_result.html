@@ -1,0 +1,4 @@
+{% if result is defined and result is not none %}
+<div class="mt-2 rounded-xl border border-sky-900 bg-slate-950/70 p-4"><span class="text-[10px] font-bold tracking-widest text-sky-300">ESTIMATED VALUE IN UGX</span><strong class="mt-1 block text-2xl">{{ result }} <span class="text-sm text-sky-300">UGX</span></strong><span class="mt-1 block text-xs text-slate-500">{{ message }}</span></div>
+{% elif message is defined %}<p class="mt-2 text-sm text-amber-300">{{ message }}</p>
+{% else %}<p class="mt-2 text-xs text-slate-500">Enter an amount to calculate its UGX equivalent.</p>{% endif %}
